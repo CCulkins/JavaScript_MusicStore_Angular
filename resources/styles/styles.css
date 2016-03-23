@@ -1,7 +1,13 @@
-.derp{
+.selected{
   color: red;
+  cursor: pointer;
+}
+
+h3{
+  cursor: pointer;
 }
 
 h1{
   color:red;
+  letter-spacing: 1px;
 }

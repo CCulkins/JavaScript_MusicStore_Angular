@@ -7,7 +7,7 @@ import { Album } from './album.model'
   directives: [AlbumListComponent],
   template:`
     <div class="container">
-      <h1>Polar Bear Music</h1>
+      <h1>Polar Bear <br> Music Share</h1>
       <album-list
         [albumList]="albums"
         (onAlbumSelect)="albumSelected($event)">
@@ -20,10 +20,10 @@ export class AppComponent {
   public albums: Album[];
   constructor(){
     this.albums = [
-      new Album("The Darkness", "Permission to Land", 14, "Rock", 0),
-      new Album("Scissor Sisters", "Ta-Dah", 12, "Pop", 1),
-      new Album("Violent Femmes", "Violent Femmes", 13, "Folk Punk", 2),
-      new Album("Mean Jeans", "Are you Serious?", 8, "Pizza Punk", 3)
+      new Album("The Darkness", "Permission to Land", 5, "Rock", 0),
+      new Album("Scissor Sisters", "Ta-Dah", 5, "Pop", 1),
+      new Album("Violent Femmes", "Violent Femmes", 3, "Folk Punk", 2),
+      new Album("Mean Jeans", "Are you Serious?", 2, "Pizza Punk", 3)
     ];
   }
   albumSelected(clickedAlbum: Album): void{
