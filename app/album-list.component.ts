@@ -1,24 +1,30 @@
 import { Component, EventEmitter } from 'angular2/core';
+import { AlbumComponent } from './album.component';
 import { Album } from './album.model';
 
 @Component({
   selector: 'album-list',
   inputs: ['albumList'],
-  outputs: ['onAlbumSelect']
+  outputs: ['onAlbumSelect'],
+  directives: [AlbumComponent],
   template:`
-  <h3 *ngFor="#currentAlbum of albumList" (click)="albumClicked(currentAlbum.albumName)">
-    {{ currentAlbum.artist }}
-  </h3>
+  <album-display *ngFor="#currentAlbum of albumList"
+    (click)="albumClicked(currentAlbum)"
+    [class.derp]="currentAlbum === selectedAlbum"
+    [album]="currentAlbum">
+  </album-display>
   `
 })
 export class AlbumListComponent {
   public albumList: Album[];
-  public onAlbumList: EventEmitter<Album>;
+  public onAlbumSelect: EventEmitter<Album>;
+  public selectedAlbum: Album;
   constructor() {
     this.onAlbumSelect = new EventEmitter();
   }
   albumClicked(clickedAlbum: Album): void {
     console.log('child', clickedAlbum);
-    this.onAlbumSelect.emit(clickedTask);
+    this.selectedAlbum = clickedAlbum;
+    this.onAlbumSelect.emit(clickedAlbum);
   }
 }

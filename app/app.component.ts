@@ -1,6 +1,6 @@
 import { Component, EventEmitter } from 'angular2/core';
-import { Album } from './album.model'
 import { AlbumListComponent } from './album-list.component'
+import { Album } from './album.model'
 
 @Component({
   selector: 'my-app',
