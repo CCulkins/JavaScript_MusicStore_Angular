@@ -1,14 +1,17 @@
 import { Component, EventEmitter } from 'angular2/core';
 import { Album } from './album.model'
+import { AlbumListComponent } from './album-list.component'
 
 @Component({
   selector: 'my-app',
+  directives: [AlbumListComponent],
   template:`
     <div class="container">
       <h1>Polar Bear Music</h1>
-      <h3 *ngFor="#album of albums" (click)="albumSelected(album.name)">
-        {{ album.artist }}
-      </h3>
+      <album-list
+        [albumList]="albums"
+        (onAlbumSelect)="albumSelected($event)">
+      </album-list>
     </div>
   `
 })
