@@ -11,11 +11,14 @@ import { Album } from './album.model';
   outputs: ['onAlbumSelect'],
   directives: [AlbumComponent, EditAlbumComponent, NewAlbumComponent],
   template:`
+
   <album-display *ngFor="#currentAlbum of albumList"
     (click)="albumClicked(currentAlbum)"
     [class.selected]="currentAlbum === selectedAlbum"
     [album]="currentAlbum">
   </album-display>
+
+
   <edit-album *ngIf="selectedAlbum" [album]="selectedAlbum">
   </edit-album>
   <new-album (onSubmitNewAlbum)="createAlbum($event)">
@@ -34,7 +37,7 @@ export class AlbumListComponent {
     this.selectedAlbum = clickedAlbum;
     this.onAlbumSelect.emit(clickedAlbum);
   }
-  createAlbum([artist, albumName, price, genre]) :void {
+  createAlbum([artist, albumName, price, genre]): void {
     this.albumList.push(
       new Album(artist, albumName, price, genre, this.albumList.length )
     );

@@ -7,6 +7,9 @@ import { Album } from './album.model';
   inputs: ['album'],
   template:`
   <h3>{{ album.artist }}</h3>
+  <h5>{{ album.albumName }}</h5>
+  <h5>{{ album.price }}</h5>
+  <h5>{{ album.genre }}</h5>
   `
 })
 
