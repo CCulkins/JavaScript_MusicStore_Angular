@@ -6,7 +6,7 @@ import { Album } from './album.model';
   selector: 'new-album',
   outputs: ['onSubmitNewAlbum'],
   template: `
-
+  <div class="main-wrap">
   <h3>AHHHHHHH'd an Album:</h3>
 
   <input placeholder="Artist" class="col-sm-8 input-lg" #newArtist />
@@ -19,6 +19,7 @@ import { Album } from './album.model';
   class="btn-success btn-lg add-button">
   Add
   </button>
+  </div>
   `
 })
 export class NewAlbumComponent {

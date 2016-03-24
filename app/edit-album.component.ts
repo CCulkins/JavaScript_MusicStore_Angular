@@ -5,7 +5,7 @@ import { Album } from './album.model'
   selector: 'edit-album',
   inputs: ['album'],
   template: `
-  <div class="album-form">
+  <div class="album-form main-wrap">
     <h3>Edit Album:</h3>
     <input [(ngModel)]="album.artist" class="col-sm-8 input-lg album-form"/>
     <input [(ngModel)]="album.albumName" class="col-sm-8 input-lg album-form"/>

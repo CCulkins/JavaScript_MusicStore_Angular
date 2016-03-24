@@ -7,7 +7,7 @@ import { Album } from './album.model'
   directives: [AlbumListComponent],
   template:`
     <div class="container">
-      <h1>Polar Bear <br> Music Share</h1>
+      <h1><span class="glyphicon glyphicon-cd"></span>Polar Bear <br> Music Share</h1>
       <album-list
         [albumList]="albums"
         (onAlbumSelect)="albumSelected($event)">

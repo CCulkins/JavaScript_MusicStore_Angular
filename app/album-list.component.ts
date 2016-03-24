@@ -17,9 +17,10 @@ import { CartPipe } from './cart.pipe';
     <option value="all">Show all</option>
     <option value="inCart">Show Cart Contents</option>
     <option value="notInCart" selected="selected">Show Not in Cart</option>
+    <option value="addEdit" selected="selected">Add or Edit Existing Albums</option>
   </select>
 
-  <album-display *ngFor="#currentAlbum of albumList"
+  <album-display *ngFor="#currentAlbum of albumList | inCart:filterCart"
     (click)="albumClicked(currentAlbum)"
     [class.selected]="currentAlbum === selectedAlbum"
     [album]="currentAlbum">
@@ -28,6 +29,7 @@ import { CartPipe } from './cart.pipe';
 
   <edit-album *ngIf="selectedAlbum" [album]="selectedAlbum">
   </edit-album>
+
   <new-album (onSubmitNewAlbum)="createAlbum($event)">
   </new-album>
   `
@@ -38,7 +40,6 @@ export class AlbumListComponent {
   public onAlbumSelect: EventEmitter<Album>;
   public selectedAlbum: Album;
   public filterCart: string = "notInCart";
-
   constructor() {
     this.onAlbumSelect = new EventEmitter();
   }

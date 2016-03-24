@@ -1,4 +1,5 @@
 export class Album{
+  public inCart: boolean = false;
   constructor(
     public artist: string,
     public albumName: string,
