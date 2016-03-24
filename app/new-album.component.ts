@@ -29,9 +29,9 @@ export class NewAlbumComponent {
   addAlbum(userArtist: HTMLInputElement, userAlbumName: HTMLInputElement, userPrice: HTMLInputElement, userGenre: HTMLInputElement){
     this.onSubmitNewAlbum.emit([userArtist.value, userAlbumName.value, userPrice.value, userGenre.value]);
 
+    userArtist.value = "";
+    userAlbumName.value = "";
+    userPrice.value = "";
+    userGenre.value = "";
   }
-  // userArtist.value = "";
-  // userAlbumName.value = "";
-  // userPrice.value = "";
-  // userGenre.value = "";
 }
